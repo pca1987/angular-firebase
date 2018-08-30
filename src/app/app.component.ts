@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { TestBed } from '@angular/core/testing';
+import { Observable } from 'rxjs';
+import { AngularFireDatabase } from 'angularfire2/database';
 
 @Component({
   selector: 'app-root',
@@ -8,9 +9,15 @@ import { TestBed } from '@angular/core/testing';
 })
 export class AppComponent {
   title = 'angular-firebase';
+  items: Observable<any[]>;
 
+  constructor(private db: AngularFireDatabase) {
+    this.db.list('items').valueChanges().subscribe(console.log);
+  }
 
   testDB(): void {
-    alert('test db');
+    this.db.list('items').push({
+      test: 1
+    });
   }
 }
