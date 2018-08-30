@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { TestBed } from '@angular/core/testing';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angular-firebase';
+
+
+  testDB(): void {
+    alert('test db');
+  }
 }
