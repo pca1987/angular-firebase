@@ -12,11 +12,11 @@ export class AppComponent {
   items: Observable<any[]>;
 
   constructor(private db: AngularFireDatabase) {
-    this.db.list('items').valueChanges().subscribe(console.log);
+    this.db.list('/items').valueChanges().subscribe(console.log);
   }
 
   testDB(): void {
-    this.db.list('items').push({
+    this.db.list('/items').push({
       test: 1
     });
   }
